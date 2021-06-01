@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+ <div class="login">
+	<h1>PUBG Win Place Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post" class="f1">
+      <div class="c1">
+        <input type="text" name="assists" placeholder="Number of Assists" required="required" /><br>
+        <!-- <p class="p">This is a field</p> -->
+        <input type="text" name="boosts" placeholder="Number of Boosts Used" required="required" /><br>
+        <!-- <p class="p">This is a field</p> -->
+
+        <input type="text" name="damageDealt" placeholder="Total Damage Dealt" required="required" /><br>
+        <input type="text" name="DBNOs" placeholder="DBNOs" required="required" /><br>
+        <input type="text" name="headshotKills" placeholder="Total Headshot Kills" required="required" /><br> 
+      </div>
+
+      <div class="c2">
+        <input type="text" name="heals" placeholder="Number of times you Healed" required="required" /><br>
+        <input type="text" name="killPlace" placeholder="Kill Place" required="required" /><br>
+        <input type="text" name="killPoints" placeholder="Kill Points" required="required" /><br>
+        <input type="text" name="kills" placeholder="Total Kills" required="required" /><br>
+        <input type="text" name="killStreaks" placeholder="Kill Streaks" required="required" /><br>
+      </div>
+
+      <div class="c3">
+        <input type="text" name="longestKill" placeholder="Longest Distance Kill" required="required" /><br>
+        <input type="text" name="matchDuration" placeholder="Total Match Duration(s)" required="required" /><br>
+        <input type="text" name="matchType" placeholder="Match Type" required="required" /><br>
+        <input type="text" name="maxplace" placeholder="Maxplace" required="required" /><br>
+        <input type="text" name="numgroup" placeholder="Number of groups" required="required" /><br>
+      </div>
+      
+      <div class="c4">
+        <input type="text" name="revives" placeholder="Total number times you Revived" required="required" /><br>
+        <input type="text" name="ridedistance" placeholder="Ride distance" required="required" /><br>
+        <input type="text" name="roadKills" placeholder="Road Kills" required="required" /><br>
+        <input type="text" name="Swimdistance" placeholder="Swim distance" required="required" /><br>
+        <input type="text" name="teamKills" placeholder="Total Team Kills" required="required" /><br>
+      </div>
+
+      <div class="c5">
+        <input type="text" name="vehicleDestroys" placeholder="Total Vehicle Destroys" required="required" /><br>
+        <input type="text" name="walkdistance" placeholder="Total distance you walk" required="required" /><br>
+        <input type="text" name="weaponsAcquired" placeholder="Weapons Acquired" required="required" /><br>
+        <input type="text" name="distance" placeholder="Distance Travelled" required="required" /><br>
+      </div>
+
+       <div class="button">
+      <button type="submit" class="btn btn-primary btn-block btn-large button">Predict</button>
+    </div>
+    </form>
+   <br>
+   <br>
+ </div>
+ {{prediction_text}}
+</body>
+</html>
